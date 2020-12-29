@@ -1,0 +1,196 @@
+{% extends "landingpage/base.html" %}
+{% load static %}
+{% block content %}
+<div id="headerwrap">
+	<div id="carouselExampleSlidesOnly" class="carousel slide" class="img_phone" data-bs-ride="carousel">
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<div class="row">
+					<div class="align-self-center col-lg-4 offset-lg-2 col-md-5 offset-md-2 col-sm-12">
+						<p class="big_white text-left">Hola Mundo</p>
+						<p class="text_white text-left">Soy Aletvia Lecona y este es un sitio que estaré empleando para
+							experimentar. Saludos.</p>
+						<a class="align-self-center" href="{%url 'main_index' %}">
+							<img src="{% static 'img/drive/Recurso 6@2x.png' %}" style="margin-bottom:50px"
+								width="130px" alt="Conoce más">
+						</a>
+					</div>
+					<div class="a_c col-lg-4 col-md-3 col-sm-12">
+						<img id="img_banner1" src="{% static 'img/drive/banner.png' %}" class="img_phone"
+							alt="Draiby promoción">
+					</div>
+				</div>
+			</div>
+			<div class="carousel-item a_c">
+				<img src="{% static 'img/head_footer/django-339744_640.png' %}" class="img_phone" alt="Second slide">
+			</div>
+			<div class="carousel-item a_c">
+				<img src="{% static 'img/head_footer/code-2620118_640.jpg' %}" class="img_phone" alt="Second slide">
+			</div>
+			{% for key, value in promos.items%}
+			{% if value.visibility %}
+			<div class="carousel-item a_c">
+				<img src={{value.image_promo}} class="img_phone" alt="Second slide">
+			</div>
+			{% endif %}
+			{% endfor %}
+		</div>
+		<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previo</span>
+		</a>
+		<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Siguiente</span>
+		</a>
+	</div>
+</div>
+<!-- headerwrap -->
+
+<!--Doble carousel-->
+<div id="change" class="row">
+	<div class="a_c col-lg-5 offset-lg-1 col-md-auto col-sm-12 col-xs-12">
+		<div class="row justify-content-center">
+			<div class="col-auto ml-md-auto a_c align-self-center">
+
+				<div id="carousel-multi" class="carousel slide carouselPhone" data-bs-ride="carousel">
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<img class="d-block w-100" src="{% static 'img/drive/slide1.png' %}" alt="Botón de Alerta">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="{% static 'img/drive/slide2.png' %}"
+								alt="Sin Tarifas Dinámicas">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="{% static 'img/drive/slide3.png' %}"
+								alt="Pago por KM Recorrido">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="{% static 'img/drive/slide4.png' %}" alt="Promociones">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="{% static 'img/drive/slide5.png' %}"
+								alt="Servicio a Extranjeros">
+						</div>
+					</div>
+					<img src="{% static 'img/drive/cell.png' %}" class="img1" />
+				</div>
+
+
+			</div>
+
+			<!-- Controles carousel-->
+			<div class="col-auto align-self-center">
+				<ol class="carousel-indicators" hidden>
+					<li id="txt1" data-target="#carousel-thumb" data-slide-to="0" class="active"></li>
+					<li id="txt2" data-target="#carousel-thumb" data-slide-to="1"></li>
+					<li id="txt3" data-target="#carousel-thumb" data-slide-to="2"></li>
+					<li id="txt4" data-target="#carousel-thumb" data-slide-to="3"></li>
+					<li id="txt5" data-target="#carousel-thumb" data-slide-to="4"></li>
+				</ol>
+				<ol class="carousel-indicators" hidden>
+					<li id="i1" data-target="#carousel-multi" data-slide-to="0" class="active"></li>
+					<li id="i2" data-target="#carousel-multi" data-slide-to="1"></li>
+					<li id="i3" data-target="#carousel-multi" data-slide-to="2"></li>
+					<li id="i4" data-target="#carousel-multi" data-slide-to="3"></li>
+					<li id="i5" data-target="#carousel-multi" data-slide-to="4"></li>
+				</ol>
+				<label id="act" hidden>1</label>
+				<label id="pass" hidden>1</label>
+				<a onclick="select_(1)"><img id="ph_1" src="{% static 'img/drive/a_1.png' %}" class="img40"
+						alt="Alerta"></a><br>
+				<a onclick="select_(2)"><img id="ph_2" src="{% static 'img/drive/b_2.png' %}" class="img40"
+						alt="Tarifas"></a><br>
+				<a onclick="select_(3)"><img id="ph_3" src="{% static 'img/drive/b_3.png' %}" class="img40"
+						alt="Pagos"></a><br>
+				<a onclick="select_(4)"><img id="ph_4" src="{% static 'img/drive/b_4.png' %}" class="img40"
+						alt="Promociones"></a><br>
+				<a onclick="select_(5)"><img id="ph_5" src="{% static 'img/drive/b_5.png' %}" class="img40"
+						alt="Extranjeros"></a>
+			</div>
+			<!-- Controles carousel-->
+		</div>
+	</div>
+	<div class="a_c col-lg-4 col-md col-sm-12 col-xs-12 align-self-center">
+
+
+		<div id="carousel-thumb" style="margin-top:20px;" class="carousel slide" data-bs-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<h2>Título 1</h2>
+					<p>Este es un texto para el <b>título 1</b>. Texto texto texto texto texto texto texto texto texto
+						texto texto texto.</p>
+				</div>
+				<div class="carousel-item">
+					<h2>Título 2</h2>
+					<p>Este es el texto para el título 2</b>. Texto texto texto texto texto texto texto texto texto
+						texto texto texto.</p>
+				</div>
+				<div class="carousel-item">
+					<h2>Título 3</h2>
+					<p>Este es otro texto para el título 3. Texto texto texto texto texto texto texto texto texto texto
+						texto texto.</p>
+				</div>
+				<div class="carousel-item">
+					<h2>Título 4</h2>
+					<p>Otro texto, este para el <b>título 4 </b>. Texto texto texto texto texto texto texto texto texto
+						texto texto texto.</p>
+				</div>
+				<div class="carousel-item">
+					<h2>Título 5</h2>
+					<p>Finalmente este es el texto para el <b>título 5 </b>. Texto texto texto texto texto texto texto
+						texto texto texto texto texto.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Footer -->
+<footer id="footer">
+	<div style="height:150px;margin-top:145px;" class="row align-items-center">
+		<div class="col">
+			<p class="resalt_white">Aletvia Anaid Lecona Lara</p>
+			<p class="text_white"></p>
+			<p class="text_white"> Atención al Cliente (222) 567 6867 </p>
+			<div class="row justify-content-center">
+				<div class="col-auto">
+					<a href="https://api.whatsapp.com/send?phone=2225676867">
+						<div id="wh" class="img30"></div>
+					</a>
+				</div>
+				<div class="col-auto">
+					<a href="https://www.linkedin.com/in/aletvia-anaid-l-042360124">
+						<div id="lin" class="img30"></div>
+					</a>
+				</div>
+				<div class="col-auto">
+					<a href="https://www.youtube.com/channel/UCRlgmkNBOG0DquJJpPWZliw">
+						<div id="yt" class="img30"></div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<hr style="margin:0px;padding:0px">
+	<!-- Copyright -->
+	<div class="row">
+		<div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1  col-sm-6 col-xs-6">
+			<div class="row py-3 justify-content-between">
+				<div class="col-auto">
+					<label class="small_text_white">© 2020</label>
+				</div>
+				<div class="col-auto">
+					<a class="small_text_white " href="#">Aviso de Privacidad</a>
+				</div>
+			</div>
+		</div>
+		<!-- Copyright -->
+	</div>
+</footer>
+<!-- Footer -->
+{% endblock %}
+{% block script %}
+<script src="{% static 'js/script_i.js' %}"></script>{% endblock %}

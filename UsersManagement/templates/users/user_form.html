@@ -1,0 +1,29 @@
+{% extends "Users/base.html" %}
+{% load static %}
+{% block content %}
+<div class="content">
+    <div class="title">
+        <h2>{{ title }}</h2>
+    </div>
+
+    {{ register_form.errors }}
+    <form method="POST" >
+        {% csrf_token %}
+
+        {% comment %}
+        {{register_form.as_p}}
+        {% endcomment %}
+
+        {% for field in register_form %}
+        <label class="col-lg-12 control-label text-lg-left" for="textinput">{{field.label}}</label>
+        
+        {{field}}
+        {% endfor %}
+
+        <div style="margin-top: 10px;">
+            <input type="submit" class="btn btn-outline-info" value="Registrarse"/>
+        </div>
+    </form>
+    
+</div>
+{% endblock %}
