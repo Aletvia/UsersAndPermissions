@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+
+<head>
+  {% block meta_tags %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Página de práctica.">
+  <meta name="keywords" content="admin, web app">
+  <meta name="author" content="Aletvia Anaid Lecona Lara">
+  {% endblock %}
+
+  <link href="{% static 'img/ic_launcher.png' %}" rel="icon">
+  <title>{% block title %}Personal Practice{% endblock %} | Aletvia Lecona</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" 
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="{% static 'css/styles_in.css' %}">
+  {% block stylesheets %}
+  {% endblock %}
+</head>
+
+<body id="body">
+  <nav class="navbar fixed-top navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand">
+        <img src="{% static 'img/ic_launcher.png' %}" alt="" width="30" height="24" class="d-inline-block align-top">
+        AALL
+      </a>
+      <a class="nav-item">
+        Salir
+      </a>
+    </div>
+  </nav>
+  
+  <div id="content">
+    {% include "snippets/header_in.html" %}
+    {% block content %}{% endblock %}
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+  {% block script %}{% endblock %}
+</body>
+
+</html>
