@@ -40,34 +40,32 @@
       </tr>
     </thead>
     <tbody>
-      {%for admin in admin_list %}
+      {%for user in users %}
       <tr>
-        <td>{{admin.first_name}} </td>
-        <td>{{admin.email}} </td>
+        <td>{{user.first_name}} </td>
+        <td>{{user.email}} </td>
         <td>
-          <a class="btn btn-primary btn-sm" href="{% url 'admin_update' admin.id%}"><i class="fa fa-pencil"></i>
+          <a class="btn btn-primary btn-sm" href="{% url 'update_user' user.id%}"><i class="fa fa-pencil"></i>
             Editar</a>
-
-          <a class="btn btn-danger btn-sm" data-toggle="modal" href="#{{admin.id}}">
+          <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#m{{user.id}}">
             <i class="fa fa-trash"></i> Eliminar
-          </a>
+          </button>
           <!-- Vertically centered modal-->
-          <div class="modal fade" id="{{admin.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter"
+          <div class="modal fade" id="m{{user.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter"
             aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title">{{admin.first_name}}</h5>
-                  <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span
-                      aria-hidden="true">×</span></button>
+                  <h5 class="modal-title">{{user.first_name}}</h5>
+                  <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <h4 class="text-center">¿Está seguro de que desea eliminar este administrador?</h4>
+                  <h4 class="text-center">¿Está seguro de que desea eliminar este usuario?</h4>
                 </div>
                 <div class="modal-footer">
-                  <button class="btn btn-light" type="button" data-dismiss="modal">Cancelar</button>
+                  <button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancelar</button>
 
-                  <form action="{% url 'admin_delete' admin.id%}" method="POST">{% csrf_token %}
+                  <form action="{% url 'delete_user' user.id%}" method="POST">{% csrf_token %}
                     <button class="btn btn-danger" type="submit">Eliminar</button>
                   </form>
                 </div>

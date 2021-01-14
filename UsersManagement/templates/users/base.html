@@ -27,11 +27,11 @@
 <body id="body">
   <nav class="navbar fixed-top navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand">
+      <a class="navbar-brand" href="{%url 'users_list' %}">
         <img src="{% static 'img/ic_launcher.png' %}" alt="" width="30" height="24" class="d-inline-block align-top">
         AALL
       </a>
-      <a class="nav-item">
+      <a class="nav-item" href="{%url 'logout' %}">
         Salir
       </a>
     </div>

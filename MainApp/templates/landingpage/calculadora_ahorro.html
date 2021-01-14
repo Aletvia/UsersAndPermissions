@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div id="headerwrap_m" >
+	<div class="row" >
+		<div class=" col-lg-5 offset-lg-1 col-md-6 col-sm-12">
+			<img id="img_banner1" src="{% static "img/move/banner.png" %}" class="img-fluid" alt="Draiby">
+		</div>
+		<div class="align-self-center col-lg-5 col-md-6 col-sm-12">
+			<p class="big_white text-left">¡Promovamos la lectura!</p>
+			<p class="text_white text-left">Dale una segunda vida a los libros que ya no usas y únete al reto para promover la lectura y amenizar el viaje de otros pasajeros con algo para leer.</p>
+		</div>
+	</div>
+</div>
+<!-- headerwrap -->
+
+<!--Card-->
+<div class="row" style="margin-top: 20px;">
+	<div class="col-lg-10 offset-lg-1 col-md-10 offset-md-1 col-xs-12">
+		<div class="card">
+			<div class="card-body a_c" style="margin-bottom:30px">
+				<h1 style="margin:30px"><b>¿Cómo puedo unirme al reto?</b></h1>
+				<div class="row justify-content-center">
+					<div class="col-lg-auto">
+						<div class="row">
+							<div class="col-auto">
+								<img src="{% static "img/move/book.png" %}" style="margin-top:5px" class="img70" alt="">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-auto">
+								<img  src="{% static "img/move/1.png" %}" class="img70" alt="">
+							</div>
+							<div class="col-auto">
+								<p class="resalt_medium_black">Selecciona un<br>libro en buen estado<br>que quieras donar</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-auto">
+						<div class="row">
+							<div class="col-auto">
+								<img src="{% static "img/move/car.png" %}" style="margin-top:15px" class="img70" alt="">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-auto">
+								<img src="{% static "img/move/2.png" %}" class="img70" alt="">
+							</div>
+							<div class="col-auto">
+								<p class="resalt_medium_black">Deja el libro en una<br>de nuestras unidades</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-auto">
+						<div class="row">
+							<div class="col-auto">
+								<img src="{% static "img/move/user.png" %}" class="img70 " alt="">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-auto">
+								<img src="{% static "img/move/3.png" %}" class="img70" alt="">
+							</div>
+							<div class="col-auto">
+								<p class="resalt_medium_black">¡Haz felíz a un<br>pasajero! </p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--Promocional-->
+<div class="row" style="margin-top:60px">
+	<div class="a_c col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-sm-12" >
+		<img src="{% static "img/move/Recurso 65@2x.png" %}" class="img-fluid" alt="">
+	</div>
+</div>
+
+
+{% endblock %}
+{% block script %}<script src="{% static "js/script_m.js" %}"></script>{% endblock %}
