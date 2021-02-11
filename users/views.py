@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
-from UsersManagement.forms import UserForm, ChangeUserForm
+from users.forms import UserForm, ChangeUserForm
 
 class Users(LoginRequiredMixin, View):
     login_url = 'login'
