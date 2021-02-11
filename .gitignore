@@ -123,5 +123,12 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-#Others
+# General
 .DS_Store
+.AppleDouble
+.LSOverride
+
+# Migrations
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py

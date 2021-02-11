@@ -1,6 +1,5 @@
-UsersAndPermissions
-# Usuarios y permisos
-Desarrollo de una proyecto para la gestión de usuarios y sus permisos.
+# UsersAndPermissions
+Desarrollo de un proyecto con inicio y cierre de sesión, recuperación de contraseña, manejo de usuarios y sus permisos.
 
 ## Instalación
 Requerimientos:
@@ -25,4 +24,6 @@ source venv/bin/activate
 ```shell script
 (venv) pip install -r PATH/requirements.txt
 ```
-4. Si todo se encuentra en orden podrá ingresar a la siguiente dirección: http://0.0.0.0:8000
+4. Configurar las variable de su archivo .env para su entorno.
+
+5. Si todo se encuentra en orden podrá ingresar a la siguiente dirección: http://127.0.0.1:8000/
