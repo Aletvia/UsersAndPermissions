@@ -8,6 +8,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from users.forms import UserForm, ChangeUserForm
 from django.views.generic import ListView
 
+"""
+Class View que despliega la lista de ususarios sin permisos de tipo staff y 
+devuelve el resultado de la búsqueda.
+"""
 class Users(LoginRequiredMixin, ListView):
     login_url = 'login'
     redirect_field_name = 'redirect_to'
@@ -18,7 +22,7 @@ class Users(LoginRequiredMixin, ListView):
     def get_queryset(self):
         user_name =  self.request.GET.get('search_user', None)
         if user_name:
-            return User.objects.filter(is_staff=False, username=user_name)
+            return User.objects.filter(is_staff=False, first_name=user_name)
         else:
             return User.objects.filter(is_staff=False)
 
