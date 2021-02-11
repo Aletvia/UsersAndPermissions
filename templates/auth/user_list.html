@@ -1,4 +1,4 @@
-{% extends "users/base.html" %}
+{% extends "auth/base.html" %}
 {% load static %}
 {% block content %}
 <div class="content">
@@ -13,22 +13,25 @@
   {% endif %}
 
   <div class="container title" >
-    <div class="row">
-      <div class="col">
-        <h2>{{ title }}</h2>
+    <form method="GET">
+      {% csrf_token %}
+      <div class="row">
+        <div class="col">
+          <h2>Usuarios</h2>
+        </div>
+        <div class="col-lg-auto">
+          <input id="search_user" name="search_user" class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+        </div>
+        <div class="col-lg-auto">
+          <button class="btn btn-outline-info" type="submit">Buscar</button>
+        </div>
+        <div class="col col-lg-auto">
+          <a class="btn btn-outline-info" href="{%url 'create_users' %}">
+            <i class="fa fa-user-plus" aria-hidden="true"></i> Agregar usuario
+          </a>
+        </div>
       </div>
-      <div class="col-lg-auto">
-        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-      </div>
-      <div class="col-lg-auto">
-        <button class="btn btn-outline-info" type="submit">Buscar</button>
-      </div>
-      <div class="col col-lg-auto">
-        <a class="btn btn-outline-info" href="{%url 'create_users' %}">
-          <i class="fa fa-user-plus" aria-hidden="true"></i> Agregar usuario
-        </a>
-      </div>
-    </div>
+    </form>
   </div>
 
   <table class="table table-striped table-hover">

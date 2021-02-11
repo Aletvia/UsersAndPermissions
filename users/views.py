@@ -6,17 +6,21 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from users.forms import UserForm, ChangeUserForm
+from django.views.generic import ListView
 
-class Users(LoginRequiredMixin, View):
+class Users(LoginRequiredMixin, ListView):
     login_url = 'login'
     redirect_field_name = 'redirect_to'
+    template_name = 'auth/user_list.html'
+    model = User
+    context_object_name = 'users'
 
-    def get(self, request):
-        users = User.objects.filter(is_staff=False)
-        return render(request, 'users/index.html', {
-            'title' : 'Usuarios',
-            'users' : users
-        })
+    def get_queryset(self):
+        user_name =  self.request.GET.get('search_user', None)
+        if user_name:
+            return User.objects.filter(is_staff=False, username=user_name)
+        else:
+            return User.objects.filter(is_staff=False)
 
 
 class CreateUser(LoginRequiredMixin, View):
@@ -25,7 +29,7 @@ class CreateUser(LoginRequiredMixin, View):
 
     def get(self,request):
 
-        return render( request, 'users/user_form.html', {
+        return render( request, 'auth/user_form.html', {
             'title' : 'Registrar usuario'
         })
 
@@ -49,7 +53,7 @@ class UpdateUser(LoginRequiredMixin, View):
     def get(self, request, id):
         user_u = User.objects.get(id=id)
 
-        return render( request, 'users/user_form.html', {
+        return render( request, 'auth/user_form.html', {
             'title' : 'Editar usuario',
             'user_u' : user_u
         })
@@ -67,7 +71,7 @@ class UpdateUser(LoginRequiredMixin, View):
             print(form.errors)
             form = UserForm()
             messages.error(request, 'UPS ... existe un problema con alguno de los campos. Por favor verifica y vuelve a intentarlo.')
-            return render( request, 'users/user_form.html', {
+            return render( request, 'auth/user_form.html', {
                 'title' : 'Editar usuario',
                 'user_u' : user_u
             })
