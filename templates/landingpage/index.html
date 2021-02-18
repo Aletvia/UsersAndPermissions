@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <div id="headerwrap">
-	<div id="carouselExampleSlidesOnly" class="carousel slide" class="img_phone" data-bs-ride="carousel">
+	<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 		<div class="carousel-inner">
 			<div class="carousel-item active">
 				<div class="row">
@@ -21,28 +21,14 @@
 					</div>
 				</div>
 			</div>
-			<div class="carousel-item a_c">
+		  	<div class="carousel-item a_c">
 				<img src="{% static 'img/head_footer/django-339744_640.png' %}" class="img_phone" alt="Second slide">
-			</div>
-			<div class="carousel-item a_c">
+		  	</div>
+		  	<div class="carousel-item a_c">
 				<img src="{% static 'img/head_footer/code-2620118_640.jpg' %}" class="img_phone" alt="Second slide">
-			</div>
-			{% for key, value in promos.items%}
-			{% if value.visibility %}
-			<div class="carousel-item a_c">
-				<img src={{value.image_promo}} class="img_phone" alt="Second slide">
-			</div>
-			{% endif %}
-			{% endfor %}
+		  	</div>
 		</div>
-		<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="sr-only">Previo</span>
-		</a>
-		<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="sr-only">Siguiente</span>
-		</a>
+		</button>
 	</div>
 </div>
 <!-- headerwrap -->

@@ -16,7 +16,7 @@ Clase para iniciar sesión.
 """
 class Login(View):
     def get(self, request):
-        return render(request, 'landingpage/login.html')
+        return render(request, 'landingpage/login.html',{'title':'Iniciar sesión'})
 
     def post(self, request):
         username = request.POST.get('username')
