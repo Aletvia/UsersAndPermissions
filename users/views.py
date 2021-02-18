@@ -1,12 +1,11 @@
-from django.views import View
-from django.contrib import messages
 from django.contrib.auth import logout
-from django.contrib.auth.models import User
-from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
-from users.forms import UserForm, ChangeUserForm
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
+from users.forms import UserForm, ChangeUserForm
 
 """
 (ListView) Clase que despliega la lista de ususarios sin permisos de tipo staff y 
