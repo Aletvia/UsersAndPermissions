@@ -6,10 +6,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from users.forms import UserForm, ChangeUserForm
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 """
-Class View que despliega la lista de ususarios sin permisos de tipo staff y 
+(ListView) Clase que despliega la lista de ususarios sin permisos de tipo staff y 
 devuelve el resultado de la búsqueda.
 """
 class Users(LoginRequiredMixin, ListView):
@@ -27,71 +27,56 @@ class Users(LoginRequiredMixin, ListView):
             return User.objects.filter(is_staff=False)
 
 
-class CreateUser(LoginRequiredMixin, View):
+"""
+(CreateView) Clase para crear un nuevo ususario.
+"""
+class CreateUser(LoginRequiredMixin, CreateView):
     login_url = 'login'
     redirect_field_name = 'redirect_to'
+    model = User
+    form_class = UserForm
+    template_name = 'auth/user_form.html'
+    success_url ="/usuarios"
+    context_object_name = 'form'
 
-    def get(self,request):
-
-        return render( request, 'auth/user_form.html', {
-            'title' : 'Registrar usuario'
-        })
-
-    def post(self, request):
-        print('POST entra')
-        register_form = UserForm( request.POST )
-
-        if register_form.is_valid():
-            print('Correcto')
-            register_form.save()
-            messages.success(request, 'El registro se ha realizado con éxito')
-            return redirect( 'users_list' )
-        else:
-            return redirect('create_users')
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = "Registrar usuario"
+        return context
 
 
-class UpdateUser(LoginRequiredMixin, View):
+"""
+(UpdateView) Clase que permite actualizar la información
+del ususario.
+"""
+class UpdateUser(LoginRequiredMixin, UpdateView):
     login_url = 'login'
     redirect_field_name = 'redirect_to'
+    model = User
+    form_class = ChangeUserForm
+    template_name = 'auth/user_form.html'
+    success_url ="/usuarios"
+    context_object_name = 'form'
 
-    def get(self, request, id):
-        user_u = User.objects.get(id=id)
-
-        return render( request, 'auth/user_form.html', {
-            'title' : 'Editar usuario',
-            'user_u' : user_u
-        })
-
-    def post(self, request, id):
-        user_u = User.objects.get(id=id)
-        form = ChangeUserForm(request.POST,instance=user_u)
-        print('///////////////////////////////////Actualizando usuario///////////////////////////////////')
-        if form.is_valid():
-            form.cleaned_data
-            form.save()
-            messages.success(request, 'El usuario se ha actualizado con éxito')
-            return redirect('users_list')
-        else:
-            print(form.errors)
-            form = UserForm()
-            messages.error(request, 'UPS ... existe un problema con alguno de los campos. Por favor verifica y vuelve a intentarlo.')
-            return render( request, 'auth/user_form.html', {
-                'title' : 'Editar usuario',
-                'user_u' : user_u
-            })
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = "Editar usuario"
+        return context
 
 
-class DeleteUser(LoginRequiredMixin, View):
+"""
+(DeleteView) Clase que elimina el usuario seleccionado.
+"""
+class DeleteUser(LoginRequiredMixin, DeleteView):
     login_url = 'login'
     redirect_field_name = 'redirect_to'
-
-    def post(self, request, id):
-        usr = User.objects.get(id=id)
-        usr.delete()
-        messages.success(request, 'El usuario se ha eliminado con éxito')
-        return redirect('users_list')
+    model = User
+    success_url ="/usuarios"
 
 
+"""
+Función que cierra la sesión del usuario autenticado.
+"""
 def LogoutUser(request):
     logout(request)
     return redirect('login')

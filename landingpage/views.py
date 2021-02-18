@@ -4,10 +4,16 @@ from django.views import View
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic import TemplateView
 
+"""
+Clase para ver landingpage.
+"""
 class Index(TemplateView):
         template_name = 'landingpage/index.html'
 
 
+"""
+Clase para iniciar sesión.
+"""
 class Login(View):
     def get(self, request):
         return render(request, 'landingpage/login.html')
