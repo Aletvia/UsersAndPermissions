@@ -1,0 +1,36 @@
+:root {
+    --input-padding-x: 1.5rem;
+    --input-padding-y: 0.75rem;
+  }
+  
+  .login,
+  .image {
+    min-height: 100vh;
+  }
+  
+  .bg-image {
+    background: url('/static/img/head_footer/butterfly-200280_1280.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-left: -50px;
+  }
+  
+  .login-heading {
+    font-weight: 300;
+  }
+  
+  .btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+    border-radius: 2rem;
+  }
+  
+  input {
+    position: relative;
+    margin: 1rem;
+  }
+  
+  
+  
+  

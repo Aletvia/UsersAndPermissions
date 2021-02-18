@@ -26,16 +26,14 @@
               <h3 class="login-heading mb-4">¡Bienvenido de vuelta!</h3>
               <form method="POST">
                 {% csrf_token %}
-                <div class="form-label-group">
+                <div >
                   <input type="text" name="username" id="username" class="form-control" placeholder="Usuario" required
                     autofocus>
-                  <label for="inputUsername">Correo</label>
                 </div>
 
-                <div class="form-label-group">
+                <div >
                   <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña"
                     required>
-                  <label for="inputPassword">Contraseña</label>
                 </div>
 
                 <div class="custom-control custom-checkbox mb-3">
