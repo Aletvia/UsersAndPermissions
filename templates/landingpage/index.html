@@ -1,5 +1,10 @@
 {% extends "landingpage/base.html" %}
 {% load static %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+{% endblock %}
+
 {% block content %}
 <div id="headerwrap">
 	<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -21,12 +26,12 @@
 					</div>
 				</div>
 			</div>
-		  	<div class="carousel-item a_c">
+			<div class="carousel-item a_c">
 				<img src="{% static 'img/head_footer/django-339744_640.png' %}" class="img_phone" alt="Second slide">
-		  	</div>
-		  	<div class="carousel-item a_c">
+			</div>
+			<div class="carousel-item a_c">
 				<img src="{% static 'img/head_footer/code-2620118_640.jpg' %}" class="img_phone" alt="Second slide">
-		  	</div>
+			</div>
 		</div>
 		</button>
 	</div>
@@ -62,12 +67,35 @@
 					</div>
 					<img src="{% static 'img/drive/cell.png' %}" class="img1" />
 				</div>
-
-
 			</div>
 
-			<!-- Controles carousel-->
-			<div class="col-auto align-self-center">
+			<div class="col-auto ml-md-auto a_c align-self-center">
+				<img id="ph_4" src="{% static 'img/drive/a_4.png' %}" class="img40"
+						alt="Alerta"><br>
+				<img id="ph_0" src="{% static 'img/drive/b_0.png' %}" class="img40"
+						alt="Tarifas"><br>
+				<img id="ph_1" src="{% static 'img/drive/b_1.png' %}" class="img40"
+						alt="Pagos"><br>
+				<img id="ph_2" src="{% static 'img/drive/b_2.png' %}" class="img40"
+						alt="Promociones"><br>
+				<img id="ph_3" src="{% static 'img/drive/b_3.png' %}" class="img40"
+						alt="Extranjeros">
+			</div>
+		</div>
+	</div>
+
+	<div class="a_c col-lg-5 col-md col-sm-12 col-xs-12 align-self-center">
+		<div class="animate__animated animate__bounce animate__faster">
+			<h2 id="title_desc">Título 0</h2>
+			<p id="txt_desc">Este es un texto para el <b>título 1</b>. Texto texto texto texto texto texto texto texto texto
+				texto texto texto.</p>
+		</div>
+	</div>
+	<label id="pass" hidden>4</label>
+</div>
+
+	<!-- Controles carousel-->
+	<!-- <div class="col-auto align-self-center">
 				<ol class="carousel-indicators" hidden>
 					<li id="txt1" data-target="#carousel-thumb" data-slide-to="0" class="active"></li>
 					<li id="txt2" data-target="#carousel-thumb" data-slide-to="1"></li>
@@ -83,7 +111,6 @@
 					<li id="i5" data-target="#carousel-multi" data-slide-to="4"></li>
 				</ol>
 				<label id="act" hidden>1</label>
-				<label id="pass" hidden>1</label>
 				<a onclick="select_(1)"><img id="ph_1" src="{% static 'img/drive/a_1.png' %}" class="img40"
 						alt="Alerta"></a><br>
 				<a onclick="select_(2)"><img id="ph_2" src="{% static 'img/drive/b_2.png' %}" class="img40"
@@ -95,13 +122,8 @@
 				<a onclick="select_(5)"><img id="ph_5" src="{% static 'img/drive/b_5.png' %}" class="img40"
 						alt="Extranjeros"></a>
 			</div>
-			<!-- Controles carousel-->
-		</div>
-	</div>
-	<div class="a_c col-lg-4 col-md col-sm-12 col-xs-12 align-self-center">
-
-
-		<div id="carousel-thumb" style="margin-top:20px;" class="carousel slide" data-bs-ride="carousel">
+		</div>-->
+	<!-- <div id="carousel-thumb" style="margin-top:20px;" class="carousel slide" data-bs-ride="carousel">
 			<div class="carousel-inner">
 				<div class="carousel-item active">
 					<h2>Título 1</h2>
@@ -129,9 +151,7 @@
 						texto texto texto texto texto.</p>
 				</div>
 			</div>
-		</div>
-	</div>
-</div>
+		</div> -->
 
 <!-- Footer -->
 <footer id="footer">
