@@ -3,6 +3,7 @@
 {% block stylesheets %}
 <link rel="stylesheet" href="{% static 'css/styles_login.css' %}">
 {% endblock %}
+{% block title %}{{title}}{% endblock %}
 
 {% block content %}
 <div id="headerwrap_log" class="container-fluid">
@@ -36,14 +37,16 @@
                     required>
                 </div>
 
-                <div class="custom-control custom-checkbox mb-3">
+                <!-- <div class="custom-control custom-checkbox mb-3">
                   <input type="checkbox" class="custom-control-input" id="customCheck1">
                   <label class="custom-control-label" for="customCheck1">Recordarme</label>
-                </div>
-                <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
-                  type="submit">Entrar</button>
-                <div class="text-center">
-                  <a class="small" href="#">¿Olvidaste tu contraseña?</a>
+                </div> -->
+
+                <div class="d-grid gap-2 col-6 mx-auto">
+                  <button class="btn btn-outline-info rounded-pill" type="submit">Entrar</button>
+                  <button type="button" class="btn btn-link btn-sm" >
+                    ¿Olvidaste tu contraseña?
+                  </button>
                 </div>
               </form>
             </div>

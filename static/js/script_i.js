@@ -1,6 +1,13 @@
 
 STATIC_URL = '/static/'
 
+const title=["Título 1", "Título 2", "Título 3", "Título 4", "Título 0"]
+const txt=["Este es un texto para el <b>título 1</b>. Texto texto texto texto texto texto texto texto textotexto texto texto.",
+	"Este es un texto para el <b>título 2</b>. Texto texto texto texto texto texto texto texto textotexto texto texto.",
+	"Este es un texto para el <b>título 3</b>. Texto texto texto texto texto texto texto texto textotexto texto texto.",
+	"Este es un texto para el <b>título 4</b>. Texto texto texto texto texto texto texto texto textotexto texto texto.",
+	"Este es un texto para el <b>título 0</b>. Texto texto texto texto texto texto texto texto textotexto texto texto."]
+
 $( document ).ready(main);
 
 function main(){
@@ -8,7 +15,7 @@ function main(){
 	isMobileDevice();
 }
 
-function scrollMenu(){
+const scrollMenu = () => {
 	var secciones = $("#change").offset().top;
 
 	if($(this).scrollTop() < secciones-100){
@@ -30,7 +37,7 @@ function scrollMenu(){
 		$("#body nav").eq(0).removeClass("color1");
 	}
 }
-function isMobileDevice() {
+const isMobileDevice = () => {
 	var element = document.getElementById("img_banner1");
 	if( navigator.userAgent.match(/Android/i)
 	|| navigator.userAgent.match(/webOS/i)
@@ -47,25 +54,14 @@ function isMobileDevice() {
 	}
 };
 
-function select_(n){
-	document.getElementById("act").innerHTML=parseInt(n) - parseInt(1);
-	document.getElementById("i"+n).click();
-	document.getElementById("txt"+n).click();
-}
-
 $('#carousel-multi').bind('slide.bs.carousel', function (e) {
-	console.log('Hola')
-	act=document.getElementById("act").innerHTML;
-	pass=document.getElementById("pass").innerHTML;
-	if(pass!=0){
-		document.getElementById("ph_"+pass).src=STATIC_URL+'img/drive/b_'+pass+'.png';
-	}
-	if(act<5){
-		n= parseInt(act) + parseInt(1);
-	}else{
-		n = 1;
-	}
-	document.getElementById("pass").innerHTML=n;
-	document.getElementById("act").innerHTML=n;
-	document.getElementById("ph_"+n).src=STATIC_URL+'img/drive/a_'+n+'.png';
+	const currentIndex = $(this).find('.active').index();
+	const pass=document.getElementById("pass").innerHTML;
+	
+	document.getElementById("ph_"+pass).src=STATIC_URL+'img/drive/b_'+pass+'.png';
+	document.getElementById("ph_"+currentIndex).src=STATIC_URL+'img/drive/a_'+currentIndex+'.png';
+	document.getElementById("title_desc").innerHTML=title[currentIndex];
+	document.getElementById("txt_desc").innerHTML=txt[currentIndex];
+	document.getElementById("pass").innerHTML=currentIndex;
+	console.log('ACT: '+currentIndex+' PASS: '+pass)
 });
