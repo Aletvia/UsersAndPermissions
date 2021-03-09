@@ -63,5 +63,4 @@ $('#carousel-multi').bind('slide.bs.carousel', function (e) {
 	document.getElementById("title_desc").innerHTML=title[currentIndex];
 	document.getElementById("txt_desc").innerHTML=txt[currentIndex];
 	document.getElementById("pass").innerHTML=currentIndex;
-	console.log('ACT: '+currentIndex+' PASS: '+pass)
 });
