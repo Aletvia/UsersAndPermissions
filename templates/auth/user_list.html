@@ -53,8 +53,8 @@
         <td>{{user.first_name}} </td>
         <td>{{user.email}} </td>
         <td>
-          <a class="btn btn-primary btn-sm" href="{% url 'update_user' user.id%}"><i class="fa fa-pencil"></i>
-            Editar</a>
+          <a class="btn btn-primary btn-sm" href="{% url 'update_user' user.id%}">
+            <i class="fa fa-edit"></i> Editar</a>
           <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#m{{user.id}}">
             <i class="fa fa-trash"></i> Eliminar
           </button>
@@ -96,6 +96,9 @@
   </table>
   <div class="row">
     <div class="col">
+      Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+    </div>
+    <div class="col-auto">
 
       <nav>
         <ul class="pagination">
@@ -140,8 +143,6 @@
         </ul>
       </nav>
     </div>
-    <div class="col-auto">
-      Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.</div>
   </div>
 
   {% else %}

@@ -28,30 +28,53 @@
   {% endif %}
 
     <form method="POST">
+      <div class="row">
         {% comment %}
         {{user_form.as_p}}
         {% endcomment %}
 
         {% csrf_token %}
-        <label class="col-lg-12 control-label text-lg-left" for="textinput">Nombre de usuario</label>
-        {{ form.username }}
-        
-        <label class="col-lg-12 control-label text-lg-left" for="textinput">Dirección de correo electrónico</label>
-        {{ form.email }}
-        
-        <label class="col-lg-12 control-label text-lg-left" for="textinput">Nombre</label>
-        {{ form.first_name }}
-        
-        <label class="col-lg-12 control-label text-lg-left" for="textinput">Apellido</label>
-        {{ form.last_name }}
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Nombre de usuario</span>
+          </div>
+          {{ form.username }}
+        </div>
 
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Correo</span>
+          </div>
+          {{ form.email }}
+        </div>
+        
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Nombre</span>
+          </div>
+          {{ form.first_name }}
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Apellido</span>
+          </div>
+          {{ form.last_name }}
+        </div>
+      
         {% if form.password1 %}
-        <label class="col-lg-12 control-label text-lg-left" for="textinput">Contraseña</label>
-        {{ form.password1 }}
-        
-        <label class="col-lg-12 control-label text-lg-left" for="textinput">Confirmación de contraseña</label>
-        {{ form.password2 }}
-
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Contraseña</span>
+          </div>
+          {{ form.password1 }}
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Confirmar contraseña</span>
+          </div>
+          {{ form.password2 }}
+        </div>
+      
         <div style="margin-top: 10px;">
             <input type="submit" class="btn btn-outline-info" value="Registrarse">
         </div>
@@ -61,7 +84,7 @@
         </div>
 
         {% endif %}
-
+      </div>
     </form>
 </div>
 {% endblock %}
