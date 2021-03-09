@@ -17,6 +17,7 @@ class Users(LoginRequiredMixin, ListView):
     template_name = 'auth/user_list.html'
     model = User
     context_object_name = 'users'
+    paginate_by = 5
 
     def get_queryset(self):
         user_name =  self.request.GET.get('search_user', None)
@@ -25,6 +26,10 @@ class Users(LoginRequiredMixin, ListView):
         else:
             return User.objects.filter(is_staff=False)
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = "Usuarios"
+        return context
 
 """
 (CreateView) Clase para crear un nuevo ususario.
